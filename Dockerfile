@@ -9,4 +9,5 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 RUN apt-get update
 RUN apt-get install -y oracle-java8-installer sbt
 
-VOLUME ["/root/.ivy2"]
+VOLUME ["/root/.ivy2", "/var/lib/docker"]
+ENTRYPOINT ["wrapdocker"]
