@@ -30,11 +30,15 @@ RUN echo "deb https://dl.bintray.com/sbt/debian /" | \
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
+# Add nodejs repo
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
 # Install Docker, openjdk8, and SBT
 RUN apt-get update && apt-get install -y \
     docker-ce \
     openjdk-8-jdk \
     sbt \
+    nodejs \
     yarn && \
     /apt-clean.sh
 
