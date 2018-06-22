@@ -42,8 +42,8 @@ RUN apt-get update && apt-get install -y \
     yarn && \
     /apt-clean.sh
 
-COPY coursier.sbt ~/.sbt/0.1/plugins/build.sbt
-COPY sbt-coursier.sbt ~/.sbt/0.1/sbt-coursier.sbt
+COPY coursier.sbt /root/.sbt/0.1/plugins/build.sbt
+COPY sbt-coursier.sbt /root/.sbt/0.1/sbt-coursier.sbt
 
 # Install latest version of SBT and print version information
 ARG SBT_VERSION=1.1.1
