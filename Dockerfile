@@ -1,5 +1,5 @@
 # Use Ubuntu instead of Alpine due to glibc issues in running certain binaries
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Disable warnings from apt-get installs
 ENV DEBIAN_FRONTEND=noninterative
@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y \
     /apt-clean.sh
 
 # Install latest version of SBT and print version information
-ARG SBT_VERSION=1.3.8
+ARG SBT_VERSION=1.3.9
 RUN mkdir project && \
     echo "sbt.version = $SBT_VERSION" > project/build.properties && \
     sbt sbtVersion && \
